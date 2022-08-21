@@ -20,6 +20,7 @@ public class Application implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
+    	//here entry point
         SpringApplication.run(Application.class, args);
     }
 
