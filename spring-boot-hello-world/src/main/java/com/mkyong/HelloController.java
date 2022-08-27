@@ -1,6 +1,10 @@
 package com.mkyong;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.CookieValue;
@@ -37,7 +41,34 @@ public class HelloController {
     
     
     
+    @GetMapping("/addCookies")
+    public String addCookies(HttpServletResponse response) {
+	    // 創建一個 cookie對象
+    	Cookie cookie = new Cookie("A4SSOKey", "A4SSOCookieTest");
+    	//將cookie對象加入response響應
+    	response.addCookie(cookie);
+    	
+    	Cookie cookie2 = new Cookie("MyAge", "28");
+    	response.addCookie(cookie2);
+
+    	Cookie cookie3 = new Cookie("MyGender", "Male");
+    	response.addCookie(cookie3);
+    		   
+	    return ("Add cookies success!");
+    }
     
+    
+    @GetMapping("/all-cookies")
+    public String readAllCookies(HttpServletRequest request) {
+	    Cookie[] cookies = request.getCookies();
+	    if (cookies != null) {
+		    return (Arrays.stream(cookies)
+		                  .map(c -> c.getName() + "=" + c.getValue())
+		                  .collect(Collectors.joining(", ")));
+	    }
+	    
+	    return ("No cookies");
+    }
     
     
     
