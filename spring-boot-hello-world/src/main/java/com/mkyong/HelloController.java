@@ -46,6 +46,8 @@ public class HelloController {
 	    // 創建一個 cookie對象
     	Cookie cookie = new Cookie("A4SSOKey", "A4SSOCookieTest");
     	//將cookie對象加入response響應
+    	//cookie.setMaxAge(7 * 24 * 60 * 60); // 7天過期
+    	cookie.setMaxAge(1); // 1 sec
     	response.addCookie(cookie);
     	
     	Cookie cookie2 = new Cookie("MyAge", "28");
