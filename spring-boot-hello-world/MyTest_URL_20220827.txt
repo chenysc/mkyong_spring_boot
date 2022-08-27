@@ -1,0 +1,13 @@
+
+//OK
+http://localhost:8080/
+
+//OK
+http://localhost:8080/myReadCookieTest
+
+//3RD TEST OK
+http://localhost:8080/change-username
+http://localhost:8080/myReadCookieTest
+
+
+
